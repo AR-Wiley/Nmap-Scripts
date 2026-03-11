@@ -32,7 +32,7 @@ port_scan() {
 	scan_today="$log_path/scan-$date_today.xml"
 	scan_yesterday="$log_path/scan-$date_yesterday.xml"
 
-	nmap $1/$2 $3 > $scan_today >> 2/dev/null
+	nmap $1/$2 $3 > $scan_today >> 2>/dev/null
 
 	if [[ -e $scan_yesterday ]]; then
 		ndiff $scan_today $scan_yesterday > $diff_path/diff-$date_today
